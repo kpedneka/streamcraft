@@ -1,0 +1,36 @@
+# --- Version Control ---
+.git
+.gitignore
+.gitattributes
+
+# --- Docker & CI/CD ---
+Dockerfile*
+.dockerignore
+.github
+.gitlab-ci.yml
+
+# --- Local IDEs and OS Files ---
+.vscode
+.DS_Store
+
+# --- Go Build Artifacts & Binaries ---
+# Ignore compiled binaries (assuming you build them inside the Dockerfile multi-stage build)
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+bin/
+out/
+dist/
+
+# --- Go Testing & Coverage ---
+*.test
+*_test.go
+coverage.out
+coverage.html
+
+# --- Environment and Secrets ---
+*.env
+*.env.*
+secrets.json

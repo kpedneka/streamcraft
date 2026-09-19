@@ -1,0 +1,18 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Desktop Services Store files
+.DS_Store
+
+# env file
+.env*
+!.env.example
+
+# Frontend and backend have their own .gitignore files, so we don't need to include them here.
+
+# root-level tooling deps (commitlint)
+/node_modules

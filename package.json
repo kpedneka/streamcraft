@@ -1,0 +1,9 @@
+{
+  "name": "streamcraft-tooling",
+  "private": true,
+  "description": "Repo-root tooling (commit message linting). Not an app — see backend/ and web/.",
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0"
+  }
+}

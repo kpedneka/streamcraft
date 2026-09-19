@@ -1,0 +1,20 @@
+run:
+  timeout: 5m
+  modules-download-mode: readonly # Prevents modification of go.mod or go.sum files
+
+linters:
+  # Disable all linters by default, then explicitly enable what you want
+  enable:
+    # Recommended Defaults
+    - errcheck      # Checks for unchecked errors
+    - govet         # Reports suspicious constructs (like printf formatting errors)
+    - ineffassign   # Detects unused variable assignments
+    - staticcheck   # Applies a massive set of static analysis rules
+    - unused        # Checks for unused constants, variables, functions, and types
+    
+    # Excellent Extra Linters
+    - gofmt         # Checks if code is formatted according to official style
+    - goimports     # Ensures imports are formatted and clean
+    - misspell      # Finds commonly misspelled English words in comments/strings
+    - bodyclose     # Checks whether HTTP response bodies are successfully closed
+    - unparam       # Reports unused function parameters

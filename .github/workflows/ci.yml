@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  backend-build-test-lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.25"
+          cache-dependency-path: backend/go.sum
+      
+      - name: Install Dependencies
+        run: |
+          cd backend
+          go mod download
+
+      - name: Test
+        run: go test ./backend/...
+    
+  web-build-test-lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web    
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd web
+          npm ci --legacy-peer-deps
+
+      - name: Test
+        run: npm test
+
+      - name: Lint
+        run: npm run lint
