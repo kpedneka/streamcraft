@@ -20,11 +20,10 @@ jobs:
       
       - name: Install Dependencies
         run: |
-          cd backend
           go mod download
 
       - name: Test
-        run: go test ./backend/...
+        run: go test ./...
     
   web-build-test-lint:
     runs-on: ubuntu-latest
@@ -37,11 +36,10 @@ jobs:
         with:
           node-version: "22"
           cache: 'npm'
-          cache-dependency-path: frontend/package-lock.json
+          cache-dependency-path: web/package-lock.json
 
       - name: Install dependencies
         run: |
-          cd web
           npm ci --legacy-peer-deps
 
       - name: Test
